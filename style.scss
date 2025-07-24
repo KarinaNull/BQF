@@ -478,12 +478,12 @@ section {
     margin-bottom: 20px;
 }
 
-.contact-item i {
-    font-size: 20px;
-    color: var(--primary);
-    margin-right: 15px;
-    margin-top: 5px;
-}
+// .contact-item i {
+//     font-size: 20px;
+//     color: var(--primary);
+//     margin-right: 15px;
+//     margin-top: 5px;
+// }
 
 .contact-form {
     flex: 1;
@@ -1240,9 +1240,8 @@ footer {
 
 .partners-hero {
     position: relative;
-    padding: 180px 0 100px;
+    padding: 100px 0 10px;
     text-align: center;
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     overflow: hidden;
 }
 

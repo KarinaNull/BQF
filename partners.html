@@ -1,13 +1,65 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" itemscope itemtype="http://schema.org/WebPage">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Наши партнеры | B&F Bakery</title>
+    <title>Наши партнеры - B&F Bakery | Официальные поставщики хлебопекарного оборудования</title>
+    <meta name="description"
+        content="Официальные партнеры B&F Bakery - ведущие производители оборудования для хлебопекарной промышленности. Сотрудничество с мировыми брендами.">
+    <meta name="keywords"
+        content="партнеры B&F Bakery, поставщики хлебопекарного оборудования, сотрудничество с производителями, промышленные пекарни">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Наши партнеры - B&F Bakery | Официальные поставщики">
+    <meta property="og:description"
+        content="Официальные партнеры B&F Bakery - ведущие производители оборудования для хлебопекарной промышленности">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bfbakery.ru/partners">
+    <meta property="og:image" content="https://bfbakery.ru/img/og-partners.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bfbakery.ru/partners">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Preload important resources -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="style.css" as="style">
+
+    <!-- DNS prefetch -->
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Главная",
+            "item": "https://bfbakery.ru/"
+        },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Партнеры",
+            "item": "https://bfbakery.ru/partners"
+        }]
+    }
+    </script>
+
     <style>
         :root {
             --primary: #b01b30;
@@ -17,38 +69,19 @@
             --transition: all 0.3s ease;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
-            overflow-x: hidden;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-
-
         .partners-hero {
-            padding: 150px 0 60px;
+            padding: 150px 0 10px;
             text-align: center;
-            background: linear-gradient(135deg, rgba(176, 27, 48, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+            background-color: #f9f9f9;
+            background-image: linear-gradient(to bottom, #ffffff, #f9f9f9);
         }
 
         .partners-hero h1 {
             font-size: 36px;
             margin-bottom: 20px;
             color: var(--secondary);
+            font-weight: 700;
+            line-height: 1.3;
         }
 
         .partners-hero p {
@@ -56,6 +89,7 @@
             max-width: 700px;
             margin: 0 auto 40px;
             color: #555;
+            line-height: 1.6;
         }
 
         .partners-grid {
@@ -68,7 +102,6 @@
         .partner-item {
             position: relative;
             padding-top: 100%;
-            /* Сохраняем квадратное соотношение */
             border-radius: 50%;
             background: white;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -120,19 +153,21 @@
             margin-top: 40px;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            background-color: var(--secondary);
+            color: white;
         }
 
         .partners-cta h2 {
             font-size: 28px;
             margin-bottom: 20px;
-            color: var(--secondary);
+            color: white;
         }
 
         .partners-cta p {
             font-size: 16px;
             max-width: 600px;
             margin: 0 auto 30px;
-            color: #555;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .btn {
@@ -152,6 +187,27 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
+        /* SEO оптимизированные текстовые блоки */
+        .seo-text {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .seo-text h2 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .seo-text p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #444;
+        }
 
         @media (max-width: 992px) {
             .partners-grid {
@@ -172,6 +228,10 @@
             .partners-grid {
                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
                 gap: 20px;
+            }
+
+            .seo-text {
+                padding: 20px;
             }
         }
 
@@ -196,11 +256,35 @@
             .partners-cta h2 {
                 font-size: 24px;
             }
+
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            padding: 15px 0;
+            font-size: 14px;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .breadcrumbs a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumbs span {
+            color: #777;
+            margin: 0 5px;
         }
     </style>
 </head>
 
 <body>
+
     <header itemscope itemtype="https://schema.org/Organization">
         <div class="container">
             <div class="header-inner">
@@ -212,42 +296,74 @@
                     <i class="fas fa-bars"></i>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="#about">О компании</a></li>
-                    <li><a href="#products">Продукция</a></li>
-                    <li><a href="#clients">Клиенты</a></li>
-                    <li><a href="#contact">Контакты</a></li>
+                    <li><a href="./index.html">О компании</a></li>
+                    <li><a href="./product.html">Продукция</a></li>
+                    <li><a href="./partners.html">Клиенты</a></li>
+                    <li><a href="./contact.html">Контакты</a></li>
                 </ul>
             </div>
         </div>
     </header>
+    <div class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="https://вашсайт.ru" itemprop="item"><span itemprop="name">Главная</span></a>
+            <meta itemprop="position" content="1" />
+        </span>
+        <span> / </span>
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="item"><span itemprop="name">Клиенты</span></span>
+            <meta itemprop="position" content="2" />
+        </span>
+    </div>
+    <main>
+        <section class="partners-hero" itemscope itemtype="https://schema.org/WebPage">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title" itemprop="headline">Наши партнеры и поставщики оборудования</h1>
+                    <p class="hero-subtitle" itemprop="description">B&F Bakery сотрудничает с ведущими мировыми
+                        производителями оборудования для хлебопекарной и кондитерской промышленности. Наши партнеры -
+                        это гарантия качества и надежности.</p>
+                </div>
+            </div>
+        </section>
 
-    <section class="partners-hero">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Наши партнеры</h1>
-                <p class="hero-subtitle">Мы сотрудничаем с ведущими компаниями пищевой промышленности по всему миру</p>
-                <!-- <div class="hero-decoration">
-                    <div class="decoration-circle"></div>
-                    <div class="decoration-circle"></div>
-                    <div class="decoration-circle"></div>
-                </div> -->
+            <div class="partners-grid" id="partnersGrid" itemscope itemtype="https://schema.org/Organization">
             </div>
         </div>
-    </section>
 
-    <div class="container">
-        <div class="partners-grid" id="partnersGrid">
-            <!-- Логотипы партнеров будут добавлены через JavaScript -->
+        <div class="container">
+            <section class="partners-cta">
+                <h2>Станьте нашим партнером</h2>
+                <p>Присоединяйтесь к сообществу компаний, которые уже используют наши технологии и оборудование</p>
+                <a href="https://bfbakery.ru/contact" class="btn">Связаться с нами</a>
+            </section>
         </div>
-    </div>
 
-    <div class="container">
-        <section class="partners-cta">
-            <h2>Станьте нашим партнером</h2>
-            <p>Присоединяйтесь к сообществу компаний, которые уже используют наши технологии</p>
-            <a href="index.html#contact" class="btn">Связаться с нами</a>
-        </section>
-    </div>
+        <div class="container">
+            <div class="seo-text">
+                <h2>Партнерская сеть B&F Bakery</h2>
+                <p>Компания B&F Bakery на протяжении многих лет успешно сотрудничает с ведущими производителями
+                    хлебопекарного оборудования в России и за рубежом. Наши партнеры - это проверенные временем
+                    поставщики, которые гарантируют высочайшее качество комплектующих и надежность оборудования.</p>
+
+                <h2>Преимущества работы с нами</h2>
+                <p>Выбирая наше оборудование вы получаете:</p>
+                <ul>
+                    <li>Гарантированное качество всех компонентов</li>
+                    <li>Сертифицированное оборудование, соответствующее международным стандартам</li>
+                    <li>Техническую поддержку и сервисное обслуживание</li>
+                    <li>Доступ к новейшим технологиям в хлебопекарной промышленности</li>
+                    <li>Гибкие условия сотрудничества и индивидуальный подход</li>
+                </ul>
+
+                <h2>Сотрудничество с производителями</h2>
+                <p>B&F Bakery открыта для новых партнерских отношений с производителями оборудования для пекарен и
+                    кондитерских производств. Мы предлагаем взаимовыгодные условия сотрудничества, включая продвижение
+                    вашей продукции на российском рынке.</p>
+            </div>
+        </div>
+    </main>
 
     <footer itemscope itemtype="https://schema.org/Organization">
         <div class="container">
@@ -255,28 +371,33 @@
                 <div class="footer-column">
                     <h3>B & F Bakery</h3>
                     <p itemprop="description">Производство автоматических линий для хлебопекарных предприятий с 2003
-                        года.</p>
+                        года. Официальные поставщики оборудования для промышленных пекарен.</p>
                     <div class="social-links">
-                        <a href="#" style="text-decoration: none;" itemprop="sameAs"><i class="fab fa-telegram"></i></a>
+                        <a href="https://t.me/bfbakery" style="text-decoration: none;" itemprop="sameAs"
+                            aria-label="Наш Telegram"><i class="fab fa-telegram"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
                     <h3>Хлебопекарное оборудование</h3>
                     <ul class="footer-links">
-                        <li><a href="#" itemprop="makesOffer">Спиральные конструкции для охлаждения</a></li>
-                        <li><a href="#" itemprop="makesOffer">Оборудование для расстойки</a></li>
-                        <li><a href="#" itemprop="makesOffer">Печи туннельные</a></li>
-                        <li><a href="#" itemprop="makesOffer">Депаннеры</a></li>
-                        <li><a href="#" itemprop="makesOffer">Система подачи</a></li>
+                        <li><a href="https://bfbakery.ru/products/cooling" itemprop="makesOffer">Спиральные конструкции
+                                для охлаждения</a></li>
+                        <li><a href="https://bfbakery.ru/products/proofing" itemprop="makesOffer">Оборудование для
+                                расстойки</a></li>
+                        <li><a href="https://bfbakery.ru/products/ovens" itemprop="makesOffer">Печи туннельные</a></li>
+                        <li><a href="https://bfbakery.ru/products/depanners" itemprop="makesOffer">Депаннеры</a></li>
+                        <li><a href="https://bfbakery.ru/products/conveyors" itemprop="makesOffer">Система подачи</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Компания</h3>
                     <ul class="footer-links">
-                        <li><a href="#about">О нас</a></li>
-                        <li><a href="#products">Продукция</a></li>
-                        <li><a href="#clients">Клиенты</a></li>
-                        <li><a href="#contact">Контакты</a></li>
+                        <li><a href="https://bfbakery.ru/about">О нас</a></li>
+                        <li><a href="https://bfbakery.ru/products">Продукция</a></li>
+                        <li><a href="https://bfbakery.ru/clients">Клиенты</a></li>
+                        <li><a href="https://bfbakery.ru/partners">Партнеры</a></li>
+                        <li><a href="https://bfbakery.ru/contact">Контакты</a></li>
                     </ul>
                 </div>
                 <div class="footer-column" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
@@ -298,54 +419,73 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Массив с путями к логотипам партнеров
             const partners = [
-                'img/partner1.jpg', 'img/partner2.jpg', 'img/partner3.jpg',
-                'img/partner4.jpg', 'img/partner5.jpg', 'img/partner6.jpg',
-                'img/partner7.jpg', 'img/partner8.jpg', 'img/partner9.jpg',
-                'img/partner10.jpg', 'img/partner11.jpg', 'img/partner12.jpg',
-                'img/partner13.jpg', 'img/partner14.jpg', 'img/partner15.jpg',
-                'img/partner16.jpg', 'img/partner18.jpg', 'img/partner19.jpg',
-                'img/partner20.jpg', 'img/partner21.jpg'
+                { name: "Sottoriva - Итальянские печи", logo: 'img/partner1.jpg' },
+                { name: "Revent - Шведское оборудование", logo: 'img/partner2.jpg' },
+                { name: "AMF - Американские депаннеры", logo: 'img/partner3.jpg' },
+                { name: "WP Bakery - Немецкие технологии", logo: 'img/partner4.jpg' },
+                { name: "Mecatherm - Французские линии", logo: 'img/partner5.jpg' },
+                { name: "Kaak - Голландские решения", logo: 'img/partner6.jpg' },
+                { name: "Rademaker - Европейское качество", logo: 'img/partner7.jpg' },
+                { name: "Hasborg - Датские инновации", logo: 'img/partner8.jpg' },
+                { name: "Bakon - Бельгийские технологии", logo: 'img/partner9.jpg' },
+                { name: "Rheon - Японские автоматы", logo: 'img/partner10.jpg' },
+                { name: "Fritsch - Немецкие пекарни", logo: 'img/partner11.jpg' },
+                { name: "MIWE - Европейские печи", logo: 'img/partner12.jpg' },
+                { name: "Diosna - Немецкие закваски", logo: 'img/partner13.jpg' },
+                { name: "VMI - Французские месители", logo: 'img/partner14.jpg' },
+                { name: "Polin - Итальянские решения", logo: 'img/partner15.jpg' },
+                { name: "Wachtel - Австрийские технологии", logo: 'img/partner16.jpg' },
+                { name: "Ziemann - Немецкие системы", logo: 'img/partner18.jpg' },
+                { name: "Gostol - Словенское оборудование", logo: 'img/partner19.jpg' },
+                { name: "Rondo - Швейцарские линии", logo: 'img/partner20.jpg' },
+                { name: "Bongard - Французские пекарни", logo: 'img/partner21.jpg' }
             ];
 
             const partnersGrid = document.getElementById('partnersGrid');
 
-            // Создаем элементы с логотипами партнеров
             partners.forEach((partner, index) => {
                 const item = document.createElement('div');
                 item.className = 'partner-item';
+                item.setAttribute('itemprop', 'member');
+                item.setAttribute('itemtype', 'https://schema.org/Organization');
 
                 const logo = document.createElement('div');
                 logo.className = 'partner-logo';
 
                 const img = document.createElement('img');
-                img.src = partner;
-                img.alt = `Партнер ${index + 1}`;
+                img.src = partner.logo;
+                img.alt = partner.name;
                 img.loading = 'lazy';
+                img.width = "160";
+                img.height = "160";
+                img.setAttribute('itemprop', 'logo');
+
+                const metaName = document.createElement('meta');
+                metaName.setAttribute('itemprop', 'name');
+                metaName.content = partner.name.split(' - ')[0];
 
                 logo.appendChild(img);
                 item.appendChild(logo);
+                item.appendChild(metaName);
                 partnersGrid.appendChild(item);
 
-                // Анимация появления с задержкой
                 setTimeout(() => {
                     item.classList.add('animate');
                 }, index * 100);
             });
 
-            // Анимация при скролле
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animationPlayState = 'running';
-                    }
+            if ('IntersectionObserver' in window) {
+                const lazyImageObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
                 });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.partner-item').forEach(item => {
-                observer.observe(item);
-            });
+            }
         });
     </script>
 </body>
