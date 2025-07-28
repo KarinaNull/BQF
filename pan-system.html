@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Спиральная охлаждающая башня | B&F Bakery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #b01b30;
+            --primary-color: #e74c3c;
+            --secondary: rgb(27, 47, 71);
+            --secondary-color: #2c3e50;
+            --accent: #b10b21;
+            --accent-color: #3498db;
+            --light: #ecf0f1;
+            --light-color: #f5f5f5;
+            --dark: #1a252f;
+            --dark-color: #333;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            padding-top: 80px;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .product-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            max-height: 800px;
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+
+        .product-hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+
+        .product-hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+        }
+
+        .product-hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .product-hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .gallery-container {
+            margin: 60px 0;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 300px;
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .video-container video {
+            transform: scale(1.05);
+        }
+
+        .caption-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            color: white;
+            padding: 20px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .caption-overlay {
+            opacity: 1;
+        }
+
+        .caption-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .caption-desc {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .full-width-section {
+            margin: 80px 0;
+        }
+
+        .full-width-media {
+            width: 100%;
+            height: 70vh;
+            min-height: 500px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .full-width-media img,
+        .full-width-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            margin-right: 15px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 1199px) {
+            .product-hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .product-hero {
+                height: 50vh;
+            }
+
+            .product-hero-content {
+                padding: 30px 20px;
+            }
+
+            .product-hero-title {
+                font-size: 2rem;
+            }
+
+            .product-hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 767px) {
+            .header-inner {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                margin-left: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .product-hero {
+                height: 40vh;
+                min-height: 300px;
+            }
+
+            .product-hero-title {
+                font-size: 1.8rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .full-width-media {
+                height: 50vh;
+                min-height: 400px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-hero-content {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .gallery-item {
+            animation: slideUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .gallery-item:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .gallery-item:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .gallery-item:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .gallery-item:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .gallery-item:nth-child(5) {
+            animation-delay: 0.7s;
+        }
+
+        .gallery-item:nth-child(6) {
+            animation-delay: 0.8s;
+        }
+    </style>
+</head>
+
+<body>
+    <header itemscope itemtype="https://schema.org/Organization">
+        <div class="header-inner">
+            <a href="index.html" class="logo" itemprop="url">
+                <img src="img/logo.png" alt="B&F Bakery - производство хлебопекарного оборудования" class="logo-img"
+                    itemprop="logo">
+            </a>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="./index.html">О компании</a></li>
+                <li><a href="./product.html">Продукция</a></li>
+                <li><a href="./partners.html">Клиенты</a></li>
+                <li><a href="./contact.html">Контакты</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="product-hero">
+        <img src="img/pan-system1.jpg" alt="Спиральная охлаждающая башня" class="product-hero-image">
+        <div class="product-hero-content">
+            <h1 class="product-hero-title">Система подачи противней или лотков для тостового хлеба</h1>
+            <p class="product-hero-subtitle"></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="gallery-container">
+            <div class="gallery">
+
+                <div class="gallery-item">
+                    <img src="img/pan-system2.jpg" alt="Система подачи противней или лотков для тостового хлеба"
+                        class="gallery-image">
+                    <div class="caption-overlay">
+                        <div class="caption-title">Компактное размещение</div>
+                        <div class="caption-desc">Оптимальное использование пространства</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="img/spiral-cooling-tower4.jpg" alt="Спиральная охлаждающая башня - вид 4"
+                        class="gallery-image">
+                    <div class="caption-overlay">
+                        <div class="caption-title">Интеграция в линию</div>
+                        <div class="caption-desc">Готовность к подключению</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="video-container">
+                        <video loop muted autoplay playsinline>
+                            <source src="img/pan-system1.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    </div>
+                    <div class="caption-overlay">
+                        <div class="caption-title">Автоматизация</div>
+                        <div class="caption-desc">Бесперебойная работа</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="full-width-section">
+            <div class="full-width-media">
+                <video loop muted autoplay playsinline>
+                    <source src="img/pan-system2.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <footer itemscope itemtype="https://schema.org/Organization">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>B & F Bakery</h3>
+                    <p itemprop="description">Производство автоматических линий для хлебопекарных предприятий с 2003
+                        года. Официальные поставщики оборудования для промышленных пекарен.</p>
+                    <div class="social-links">
+                        <a href="https://t.me/bfbakery" style="text-decoration: none;" itemprop="sameAs"
+                            aria-label="Наш Telegram"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Хлебопекарное оборудование</h3>
+                    <ul class="footer-links">
+                        <li><a href="./spiral-cooling-tower.html" itemprop="makesOffer">Спиральные конструкции
+                                для охлаждения</a></li>
+                        <li><a href="./proofing-equipment.html" itemprop="makesOffer">Оборудование для
+                                расстойки</a></li>
+                        <li><a href="./oven.html" itemprop="makesOffer">Печи туннельные</a></li>
+                        <li><a href="./depanner.html" itemprop="makesOffer">Депаннеры</a></li>
+                        <li><a href="./Lider-Delider-system.html" itemprop="makesOffer">Система подачи</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Компания</h3>
+                    <ul class="footer-links">
+                        <li><a href="./index.html">О нас</a></li>
+                        <li><a href="./product.html">Продукция</a></li>
+                        <li><a href="./partners.html">Клиенты</a></li>
+                        <li><a href="./contact.html">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <span itemprop="streetAddress">
+                            г. Москва, Рязанский проспект, д.2, стр.49, оф.204 </span>, <span
+                            itemprop="addressLocality">Москва</span></p>
+                    <p><i class="fas fa-phone-alt"></i> <span itemprop="telephone">
+                            +7 (495) 668-12-19</span></p>
+                    <p><i class="fas fa-envelope"></i> <span itemprop="email">msev@makiz.ru</span></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span itemprop="copyrightYear">2025</span> <span itemprop="name">B & F Bakery</span>. Все
+                    права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Мобильное меню
+        document.querySelector('.hamburger').addEventListener('click', function () {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Автовоспроизведение видео при появлении в области видимости
+        document.querySelectorAll('video').forEach(video => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        video.play().catch(e => console.log('Автовоспроизведение не сработало:', e));
+                    } else {
+                        video.pause();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(video);
+
+            // Бесконечный цикл видео
+            video.addEventListener('ended', () => {
+                video.currentTime = 0;
+                video.play();
+            });
+        });
+    </script>
+</body>
+
+</html>
