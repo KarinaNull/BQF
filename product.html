@@ -113,6 +113,11 @@
             display: none;
             cursor: pointer;
             font-size: 24px;
+            transition: var(--transition);
+        }
+
+        .hamburger.active {
+            color: var(--primary);
         }
 
         .container {
@@ -175,7 +180,7 @@
             overflow: hidden;
             position: relative;
             min-height: 250px;
-            background-color: #f0f0f0;
+            /* background-color: #f0f0f0; */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -192,6 +197,7 @@
             height: 100%;
             object-fit: cover;
             transition: var(--transition);
+            border-radius: 12px;
         }
 
         .product-image:hover img {
@@ -674,9 +680,63 @@
     </footer>
 
     <script>
-        // Мобильное меню
-        document.querySelector('.hamburger').addEventListener('click', function () {
-            document.querySelector('.nav-links').classList.toggle('active');
+        document.addEventListener('DOMContentLoaded', function () {
+            // Мобильное меню
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', function () {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            // Закрытие меню при клике на ссылку
+            const navLinksAll = document.querySelectorAll('.nav-links a');
+            navLinksAll.forEach(link => {
+                link.addEventListener('click', function () {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+
+            // Анимация при скролле
+            const animateElements = document.querySelectorAll('.animate, .animate-left, .animate-right');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            // Фиксированный хедер
+            window.addEventListener('scroll', function () {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.style.background = 'rgba(255, 255, 255, 1)';
+                    header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                }
+            });
+
+            // Обработка формы
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    // Здесь можно добавить AJAX-отправку формы
+                    alert('Сообщение отправлено! Мы свяжемся с вами в ближайшее время.');
+                    this.reset();
+                });
+            }
         });
     </script>
 </body>
