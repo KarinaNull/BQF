@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Спиральная охлаждающая башня | B&F Bakery</title>
+    <title>Система закрывания крышкой тостовых форм | B&F Bakery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
@@ -261,6 +261,66 @@
             object-fit: cover;
         }
 
+        /* Новый блок контактов */
+        .contact-section {
+            background-color: white;
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .contact-card {
+            background: var(--light-color);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .contact-text {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--dark-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn i {
+            margin-left: 8px;
+        }
+
         footer {
             background-color: var(--secondary-color);
             color: white;
@@ -405,6 +465,14 @@
                 height: 50vh;
                 min-height: 400px;
             }
+
+            .contact-card {
+                padding: 30px 20px;
+            }
+
+            .contact-title {
+                font-size: 1.5rem;
+            }
         }
 
         @keyframes fadeIn {
@@ -460,6 +528,12 @@
 
         .gallery-item:nth-child(6) {
             animation-delay: 0.8s;
+        }
+
+        .contact-card {
+            animation: slideUp 0.8s ease forwards;
+            animation-delay: 0.9s;
+            opacity: 0;
         }
     </style>
 </head>
@@ -533,6 +607,18 @@
                     <source src="img/Lider-Delider-system4.mp4" type="video/mp4">
                     Ваш браузер не поддерживает видео.
                 </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Новый блок контактов -->
+    <div class="contact-section">
+        <div class="contact-container">
+            <div class="contact-card">
+                <h3 class="contact-title">Заинтересованы в этом оборудовании?</h3>
+                <p class="contact-text">Свяжитесь с нами для получения дополнительной информации и индивидуального
+                    предложения</p>
+                <a href="contact.html" class="btn">Связаться с нами <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
