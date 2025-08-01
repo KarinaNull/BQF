@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /tmp/
+
+Sitemap: https://bqf-industrial.ru/sitemap.xml

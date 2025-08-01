@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <link rel="self" href="https://bqf-industrial.ru/feed.xml"/>
+    <updated>2025-08-01T00:00:00+03:00</updated>
+    <title>BQF Industrial - Хлебопекарное оборудование</title>
+    <description>Производитель промышленного хлебопекарного оборудования</description>
+    
+    <entry>
+        <title>Главная страница</title>
+        <link href="https://bqf-industrial.ru/"/>
+        <updated>2025-08-01T00:00:00+03:00</updated>
+        <content type="text">BQF Industrial - производитель хлебопекарного оборудования с 2003 года</content>
+    </entry>
+    
+    <entry>
+        <title>Продукция</title>
+        <link href="https://bqf-industrial.ru/product.html"/>
+        <updated>2025-08-01T00:00:00+03:00</updated>
+        <content type="text">Спиральные охладители, туннельные печи, депаннеры</content>
+    </entry>
+</feed>
